@@ -13,11 +13,11 @@ button{
     border:none;
     border-radius: 4px;
     outline: none;
+    &:hover{
+        box-shadow: 0 15px 50px rgba(0,116,230,.3);
+    }
 }
 
-button:hover{
-    box-shadow: 0 15px 50px rgba(0,116,230,.3);
-}
 .tooltip-container{
     padding: 80px 0;
 }

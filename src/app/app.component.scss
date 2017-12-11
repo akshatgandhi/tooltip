@@ -1,3 +1,9 @@
+$font-family:'Century Gothic','sans-serif','Arial';
+
+body{
+    font-family: $font-family !important;
+}
+
 html,body,.container-fluid{
     height:100%;
 }
