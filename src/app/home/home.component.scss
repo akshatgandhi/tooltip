@@ -1,18 +1,23 @@
-$min-width:100px;
-$primary-back-color:'blue';
-$white-color:'#fff';
+$min-width:300px;
+$primary-back-color:#0081ff;
+$white-color:#fff;
 
 button{
     min-width:$min-width;
     background-color:$primary-back-color;
     color:$white-color;
     position: relative;
+    padding: 15px 0;
+    background-color: $primary-back-color;
+    box-shadow: 0 10px 30px rgba(0,116,230,.1), 0 10px 20px rgba(37,37,37,.05);
+    border:none;
+    border-radius: 4px;
+    outline: none;
 }
 
-.centered-row{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    height: 100%;
+button:hover{
+    box-shadow: 0 15px 50px rgba(0,116,230,.3);
+}
+.tooltip-container{
+    padding: 80px 0;
 }
