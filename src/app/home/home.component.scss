@@ -1,0 +1,18 @@
+$min-width:100px;
+$primary-back-color:'blue';
+$white-color:'#fff';
+
+button{
+    min-width:$min-width;
+    background-color:$primary-back-color;
+    color:$white-color;
+    position: relative;
+}
+
+.centered-row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    height: 100%;
+}
