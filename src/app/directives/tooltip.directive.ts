@@ -7,7 +7,8 @@ import { TooltipComponent } from 'app/tooltip/tooltip.component';
 })
 export class TooltipDirective {
 
-  constructor(private _eref: ElementRef, private vcr: ViewContainerRef, private resolver: ComponentFactoryResolver, private renderer: Renderer2) { }
+  constructor(private _eref: ElementRef, private vcr: ViewContainerRef, private resolver: ComponentFactoryResolver, private renderer: Renderer2) { 
+  }
 
   @Input('tooltip') content: string;
 
@@ -34,6 +35,20 @@ export class TooltipDirective {
     let x = event.keyCode;
     if (x === 27) {
       this.destroy();
+    }
+  }
+
+  @HostListener("window:scroll", [])
+  onWindowScroll() {
+    if (this.tooltip) {
+      var elem = this.tooltip.location.nativeElement.getBoundingClientRect();
+      if ((elem.top >= 70) && (elem.bottom <= window.innerHeight)) {
+        this.renderer.removeClass(this._eref.nativeElement.querySelectorAll('.tltip')[0], 'bottom');
+        this.renderer.addClass(this._eref.nativeElement.querySelectorAll('.tltip')[0], 'top');
+      } else {
+        this.renderer.removeClass(this._eref.nativeElement.querySelectorAll('.tltip')[0], 'top');
+        this.renderer.addClass(this._eref.nativeElement.querySelectorAll('.tltip')[0], 'bottom');
+      }
     }
   }
 
