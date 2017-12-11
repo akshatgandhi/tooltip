@@ -16,13 +16,14 @@ export class TooltipDirective {
   @HostListener('document:click', ['$event']) clickedOutside($event) {
     if (this._eref.nativeElement.contains($event.target)) {
       let factory = this.resolver.resolveComponentFactory(TooltipComponent);
+      if (!this.tooltip) {
+        // create component
+        this.tooltip = this.vcr.createComponent(factory);
 
-      // create component
-      this.tooltip = this.vcr.createComponent(factory);
-
-      // set content of the component
-      this.tooltip.instance.content = this.content as string;
-      this._eref.nativeElement.appendChild(this.tooltip.location.nativeElement);
+        // set content of the component
+        this.tooltip.instance.content = this.content as string;
+        this._eref.nativeElement.appendChild(this.tooltip.location.nativeElement);
+      }
     } else {
       this.destroy();
     }
@@ -39,6 +40,7 @@ export class TooltipDirective {
   destroy() {
     if (this.tooltip) {
       this.tooltip.destroy();
+      this.tooltip = null;
     }
   }
 
