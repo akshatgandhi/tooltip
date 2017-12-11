@@ -12,9 +12,14 @@ button{
     box-shadow: 0 10px 30px rgba(0,116,230,.1), 0 10px 20px rgba(37,37,37,.05);
     border:none;
     border-radius: 4px;
-    outline: none;
     &:hover{
         box-shadow: 0 15px 50px rgba(0,116,230,.3);
+    }
+    &:focus{
+        outline-color: $primary-back-color;
+        outline-style: solid;
+        outline-offset: 4px;
+        outline-width: 2px;
     }
 }
 
